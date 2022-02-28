@@ -1,5 +1,7 @@
 require('./bootstrap');
 
+import Alpine from 'alpinejs';
+
 document.addEventListener('DOMContentLoaded', function() {
 	if (typeof _MENU !== 'undefined') {
 		document.querySelector(`[data-page="${_MENU}"]`)?.classList.add('fw-bold');
@@ -11,3 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// 	form.submit();
 	// });
 });
+
+window.Alpine = Alpine;
+
+Alpine.start();

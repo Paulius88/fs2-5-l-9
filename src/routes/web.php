@@ -15,6 +15,8 @@ use App\Http\Controllers;
 |
 */
 
+require_once base_path('routes/auth.php');
+
 Route::redirect('/', '/products', 301);
 
 Route::get('/products', [Controllers\Products\ProductController::class, 'index'])->name('products.index');
@@ -23,6 +25,10 @@ Route::get('/orders', [Controllers\Orders\OrderController::class, 'index'])->nam
 Route::get('/contacts', [Controllers\Contacts\ContactController::class, 'index'])->name('contacts.index');
 
 Route::view('/welcome', 'welcome');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 // Route::get('/', 'App\Http\Controllers\Products\ProductController@index');
 // Route::namespace('App\Http\Controllers')->group(function() {
