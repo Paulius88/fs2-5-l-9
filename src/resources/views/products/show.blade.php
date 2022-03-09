@@ -1,6 +1,9 @@
 @extends('layouts.shop', ['menu' => 'products'])
 @section('title', 'Products')
 @section('content')
+<div class="text-end mb-2">
+	<a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">Edit</a>
+</div>
 <div class="row row-cols-1 row-cols-md-2">
 	<div class="col">
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

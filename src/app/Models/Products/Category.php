@@ -10,4 +10,9 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'product_categories';
+
+    public function scopeIsActive($query)
+    {
+        $query->where('is_active', TRUE);
+    }
 }

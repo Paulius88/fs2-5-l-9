@@ -1,6 +1,9 @@
 @extends('layouts.shop', ['menu' => 'products'])
 @section('title', 'Products')
 @section('content')
+<div class="text-end mb-2">
+	<a href="{{ route('products.create') }}" class="btn btn-success">Create</a>
+</div>
 @include('products.partials.filters')
 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 	@foreach($products as $product)

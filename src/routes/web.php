@@ -17,9 +17,20 @@ use App\Http\Controllers;
 
 Route::redirect('/', '/products', 301);
 
-Route::get('/products', [Controllers\Products\ProductController::class, 'index'])->name('products.index');
-Route::get('/products/{product}', [Controllers\Products\ProductController::class, 'show'])->name('products.show');
-Route::get('/orders', [Controllers\Orders\OrderController::class, 'index'])->name('orders.index');
+Route::prefix('products')->group(function() {
+	Route::get('/', [Controllers\Products\ProductController::class, 'index'])->name('products.index');
+	Route::get('/create', [Controllers\Products\ProductController::class, 'create'])->name('products.create');
+	Route::post('/store', [Controllers\Products\ProductController::class, 'store'])->name('products.store');
+	Route::get('/edit/{product}', [Controllers\Products\ProductController::class, 'edit'])->name('products.edit');
+	Route::patch('/update/{product}', [Controllers\Products\ProductController::class, 'update'])->name('products.update');
+	Route::get('/{product}', [Controllers\Products\ProductController::class, 'show'])->name('products.show');
+});
+
+Route::name('orders.')->prefix('orders')->group(function() {
+	Route::get('/', [Controllers\Orders\OrderController::class, 'index'])->name('index');
+	Route::post('/save', [Controllers\Orders\OrderController::class, 'save'])->name('save');
+});
+
 Route::get('/contacts', [Controllers\Contacts\ContactController::class, 'index'])->name('contacts.index');
 
 Route::view('/welcome', 'welcome');

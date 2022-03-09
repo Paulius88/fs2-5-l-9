@@ -16,20 +16,22 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
 
-            $table->boolean('is_active', TRUE);
+            $table->boolean('is_active')->default(FALSE);
 
             $table->foreignId('category_id')->references('id')->on('product_categories')->onDelete('restrict');
 
             $table->string('name');
+
             $table->text('description');
 
-            $table->string('SKU')->unique();
+            $table->string('identifier')->unique()->nullable();
 
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2)->nullable();
 
             $table->json('details')->nullable();
 
             $table->timestamps();
+            // $table->softDeletes();
         });
     }
 
