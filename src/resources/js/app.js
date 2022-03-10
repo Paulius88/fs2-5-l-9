@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.querySelector(`[data-page="${_MENU}"]`)?.classList.add('fw-bold');
 	}
 
-	document.querySelector('[data-bs-target="#orderManagement"]').click();
+	// document.querySelector('[data-bs-target="#orderManagement"]').click();
 
 	require('./orderManagement');
 });

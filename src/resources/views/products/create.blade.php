@@ -18,10 +18,10 @@
 						@endforeach
 					</select>
 					@error('category_id')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
 				</div>
 			</div>
 			<div class="row mb-3">
@@ -29,10 +29,10 @@
 				<div class="col-sm-10">
 					<input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
 					@error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
 				</div>
 			</div>
 			<div class="row mb-3">
@@ -40,10 +40,10 @@
 				<div class="col-sm-10">
 					<textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
 					@error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
 				</div>
 			</div>
 			{{-- <div class="row mb-3">

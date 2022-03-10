@@ -15,4 +15,9 @@ class Category extends Model
     {
         $query->where('is_active', TRUE);
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

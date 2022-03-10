@@ -18,14 +18,14 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-
         return [
             'is_active' => 1,
-            'category_id' => Models\Products\Category::inRandomOrder()->first()->id,
-            'name' => $this->faker->words(rand(2,3), TRUE),
+            'stock' => rand(10, 100),
+            'category_id' => Models\Products\Category::factory(),
+            // 'name' => $this->faker->words(rand(2,3), TRUE),
+            'name' => $this->faker->word,
             'description' => $this->faker->sentence,
             'identifier' => $this->faker->ean13,
-            'identifier_type_id' => Models\Products\IdentifierType::inRandomOrder()->first()->id,
             'price' => $this->faker->randomNumber(2)
         ];
     }

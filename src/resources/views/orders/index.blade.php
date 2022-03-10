@@ -7,23 +7,36 @@
 	</button>
 </div>
 <div class="mb-3 text-center">
-	<table class="table">
+	<table class="table mb-2">
 		<thead>
 			<tr>
+				<th>#</th>
 				<th>Product</th>
-				<th>Total</th>
+				<th>Comment</th>
+				<th>Created at</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($orders as $order)
 			<tr>
-				<td>{{ $order['product']['name'] }}</td>
-				<td>{{ $order['price'] }}</td>
+				<td>{{ $order->id }}</td>
+				<td>
+					<ul class="text-start">
+						@foreach($order->products as $product)
+						<li>{{ $product->name }} : {{ $product->pivot->quantity }}</li>
+						@endforeach
+					</ul>
+				</td>
+				<td>{{ $order->comment }}</td>
+				<td>{{ $order->created_at }}</td>
 				<td></td>
 			</tr>
 			@endforeach
 		</tbody>
 	</table>
+
+	{{ $orders->links() }}
 </div>
 @include('orders.save')
 @endsection

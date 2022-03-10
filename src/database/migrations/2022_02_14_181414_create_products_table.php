@@ -20,6 +20,8 @@ return new class extends Migration
 
             $table->foreignId('category_id')->references('id')->on('product_categories')->onDelete('restrict');
 
+            $table->unsignedTinyInteger('stock');
+
             $table->string('name');
 
             $table->text('description');

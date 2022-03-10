@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_identifier_types', function (Blueprint $table) {
-            $table->unsignedTinyInteger('id')->autoIncrement();
-            
-            $table->string('name')->unique();
+        Schema::create('orders_products', function (Blueprint $table) {
+            $table->foreignId('order_id')->references('id')->on('orders')->onDelete('restrict');
+            $table->foreignId('product_id')->references('id')->on('products')->onDelete('restrict');
 
-            $table->timestamps();
+            $table->unsignedTinyInteger('quantity')->default(0);
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_identifier_types');
+        Schema::dropIfExists('orders_products');
     }
 };
