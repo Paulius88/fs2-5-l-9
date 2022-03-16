@@ -10,7 +10,6 @@
 		@stack('styles')
 		<title>{{ config('app.name') }} - @yield('title')</title>
     </head>
-	</head>
 	<body>
 		<div class="container py-3">
 			@include('partials.header', ['menu' => $menu])

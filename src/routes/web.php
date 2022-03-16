@@ -15,7 +15,7 @@ use App\Http\Controllers;
 |
 */
 
-Route::redirect('/', '/products', 301);
+Route::redirect('/', '/shop', 301);
 
 Route::prefix('products')->group(function() {
 	Route::get('/', [Controllers\Products\ProductController::class, 'index'])->name('products.index');
@@ -34,6 +34,8 @@ Route::name('orders.')->prefix('orders')->group(function() {
 Route::get('/contacts', [Controllers\Contacts\ContactController::class, 'index'])->name('contacts.index');
 
 Route::view('/welcome', 'welcome');
+
+Route::view('/shop', 'shop.index');
 
 // Route::get('/', 'App\Http\Controllers\Products\ProductController@index');
 // Route::namespace('App\Http\Controllers')->group(function() {
