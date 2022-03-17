@@ -1,5 +1,7 @@
 const mix = require('laravel-mix');
 
+mix.disableSuccessNotifications();
+
 mix.version();
 
 if (mix.inProduction()) {
